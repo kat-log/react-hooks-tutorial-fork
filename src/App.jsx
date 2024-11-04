@@ -27,7 +27,7 @@ const reducer = (state, action) => {
 function App() {
   const [count, setCount] = useState(0);
   const shincodeInfo = useContext(ShinCodeContext);
-  const ref = useRef();
+  const inputRef = useRef();
   const [state, dispatch] = useReducer(reducer, 0);
 
   useEffect(() => {
@@ -38,9 +38,9 @@ function App() {
   }, [count]);
 
   const handleRef = () => {
-    console.log(ref.current.value);
-    ref.current.focus();
-    console.log(ref.current.offsetHeight);
+    console.log(inputRef.current.value);
+    inputRef.current.focus();
+    console.log(inputRef.current.offsetHeight);
   };
 
   //useMemo(2回目以降の同じ入力の関数呼び出しに対するコストが削減)
@@ -95,7 +95,7 @@ function App() {
 
       <hr />
       <h1>UseRef</h1>
-      <input type="text" ref={ref} />
+      <input type="text" ref={inputRef} />
       <button onClick={handleRef}>UseRef</button>
 
       <hr />
